@@ -3,67 +3,31 @@ Face Recognition Based Attendance System
 A smart and automated Face Recognition Attendance System built using Haarcascade face detection, LBPH face recognition, Flask backend, and MERN stack frontend.
 This system captures faces, recognizes individuals in real-time, and stores attendance in a database.
 
-Features
-Face Detection & Recognition
+🚀 Features
+🔍 Face Detection & Recognition
+    Face detection using Haarcascade
+    Face recognition using LBPH (Local Binary Patterns Histogram)
+    Real-time camera feed detection
+    High accuracy for known individuals
 
-Face detection using Haarcascade
+📝 Attendance System
+    Automatic attendance marking
+    Time & date stamp
+    View attendance history
+    Supports multiple users
 
-Face recognition using LBPH (Local Binary Patterns Histogram)
+📸 Dataset Management
+    Face registration (add new users)
+    Dataset capturing with multiple images
+    Safe and structured dataset storage
 
-Real-time camera feed detection
+🌐 Frontend (React + Vite)
+    Clean and responsive UI
+    Live camera feed on browser
+    Attendance dashboard
+    Registration form
 
-High accuracy for known individuals
-
-Attendance System
-
-Automatic attendance marking
-
-Time & date stamp
-
-View attendance history
-
-Supports multiple users
-
-Dataset Management
-
-Face registration (add new users)
-
-Dataset capturing with multiple images
-
-Safe and structured dataset storage
-
-Frontend (React + Vite)
-
-Clean and responsive UI
-
-Live camera feed on browser
-
-Attendance dashboard
-
-Registration form
-
-Backend (Flask + Node + MongoDB)
-
-Flask backend for face recognition
-
-Node.js backend for API + attendance management
-
-MongoDB for user data & attendance logs
-
-Project Structure
-FACE-RECOGNITION-ATTENDANCE/
-│
-├── backend/ # Node.js backend (MongoDB APIs)
-├── backend-node/ # Additional Node server (if used)
-├── public/
-├── src/ # React frontend (Vite)
-│
-├── face_recognition/ # Python recognition system (if separate)
-│ ├── haarcascade/
-│ ├── dataset/
-│ └── trainer.yml
-│
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+🖥️ Backend (Flask + Node + MongoDB)
+    Flask backend for face recognition
+    Node.js backend for API + attendance management
+    MongoDB for user data & attendance logs
