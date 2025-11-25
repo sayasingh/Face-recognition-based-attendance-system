@@ -6,6 +6,9 @@ from src.lbp import lpb_dataset
 from src.histogram import lpb_features
 from src.trainer import lpbh_model
 from src.recognizer import face_recognition
+import os
+import shutil
+from flask import jsonify
 
 app = Flask(__name__)
 CORS(app)
@@ -112,3 +115,48 @@ def recognize_route():
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+
+
+
+@app.route('/delete-face/<string:username>', methods=['DELETE'])
+def delete_face(username):
+    try:
+        base_paths = [
+            os.path.join('dataset', username),
+            os.path.join('lpb_dataset', username),
+            os.path.join('processed_dataset', username),
+        ]
+        feature_file = os.path.join('features', f'{username}.npy')
+        model_file = os.path.join('models', 'lbph_model.pkl')
+
+        deleted_items = []
+
+        # Delete user-specific folders
+        for path in base_paths:
+            if os.path.exists(path):
+                shutil.rmtree(path)
+                deleted_items.append(path)
+
+        # Delete feature file if exists
+        if os.path.exists(feature_file):
+            os.remove(feature_file)
+            deleted_items.append(feature_file)
+
+        # Optionally update LBPH model
+        if os.path.exists(model_file):
+            print(f"ℹ️ lbph_model.pkl exists at {model_file}. You can retrain it later.")
+            # You could remove or retrain model if desired
+
+        if not deleted_items:
+            return jsonify({"message": f"No face data found for {username}"}), 404
+
+        print(f"✅ Deleted face data for {username}: {deleted_items}")
+        return jsonify({
+            "success": True,
+            "message": f"Deleted face data for {username}",
+            "deleted": deleted_items
+        }), 200
+
+    except Exception as e:
+        print("❌ Error deleting face data:", e)
+        return jsonify({"error": str(e)}), 500

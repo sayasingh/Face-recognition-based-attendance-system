@@ -24,10 +24,10 @@ const AllUser = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
       await axios.delete(`http://localhost:5000/user/${id}`);
-      fetchUsers(); // refresh list after delete
+      alert("User deleted successfully");
     } catch (err) {
       console.error(err);
-      alert("Error deleting the user");
+      alert("Error deleting user");
     }
   };
 

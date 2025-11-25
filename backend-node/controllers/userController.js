@@ -72,3 +72,30 @@ export const updateUser = async (req, res) => {
     return res.status(500).send("Error updating user");
   }
 };
+
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Delete from MongoDB
+    await User.findByIdAndDelete(id);
+
+    // Ask Flask to delete face data
+    try {
+      await axios.delete(`http://127.0.0.1:5000/delete-face/${user.username}`);
+      console.log(`✅ Face data deleted for ${user.username}`);
+    } catch (flaskErr) {
+      console.error("⚠️ Failed to delete face data in Flask:", flaskErr.message);
+    }
+
+    res.status(200).json({
+      success: true,
+      message:` User ${user.username} deleted from DB and face data cleanup attempted.`,
+    });
+  } catch (err) {
+    console.error("Error deleting user:", err.message);
+    res.status(500).json({ error: "Server error deleting user." });
+  }
+};

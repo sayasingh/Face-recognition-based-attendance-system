@@ -193,7 +193,7 @@ useEffect(() => {
               // disabled={isAllowed}
               onClick={() => handleSubmit2()}
             >
-              tendace
+              tendance
             </button>
 
           </div>
