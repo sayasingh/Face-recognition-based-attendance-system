@@ -1,59 +1,117 @@
-# Face-recognition-based-attendance-system
+Face Recognition Based Attendance System
 
-This is a Face Detection & Recognition Attendance System built using:
+A Face Detection & Recognition Attendance System built using:
 
-  -React.js (Frontend)
-  
-  -Node.js + Express (Backend)
-  
-  -MongoDB (Database)
-  
-  -Flask + Python + OpenCV (Recognition Module)
-  
-The system detects faces using Haarcascade and recognizes them using LBPH, then marks attendance automatically. <br>
+React.js (Frontend)
+
+Node.js + Express (API Backend)
+
+MongoDB (Database)
+
+Flask + Python + OpenCV (Face Recognition Module)
+
+The system detects faces (Haarcascade), recognizes them (LBPH), and marks attendance automatically.
+
+Features
+
+✔️ Student Registration with Face Capture
+
+✔️ Live Camera Detection Using OpenCV
+
+✔️ LBPH-based Face Recognition
+
+✔️ Automatic Attendance Marking
+
+✔️ Admin Dashboard & Student Dashboard
+
+✔️ Separate Teacher Dashboard
+
+✔️ Daily & Last 7 Days Attendance View
+
+✔️ MERN + Flask Integration
+
+✔️ Works on Local Network
+
+ System Architecture
+React (Frontend)
+      │
+      │ HTTP (Axios)
+      ▼
+Node.js + Express (Backend API)
+      │
+      │ REST API Communication
+      ▼
+Flask (Python/OpenCV Recognition Module)
+      │
+      ▼
+MongoDB (User + Attendance Storage)
+
+Technologies Used
+Frontend
+
+React.js
+
+Axios
+
+CSS
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB / Mongoose
+
+Recognition Module
+
+Python
+
+Flask
+
+OpenCV
+
+Haarcascade
+
+LBPH Face Recognizer
+
+Project Structure
+/frontend          → React User Interface
+/backend           → Node.js API
+/recognition       → Flask + OpenCV Face Recognition
+/dataset           → Stored training images
+/model             → LBPH trained model file
+
+
+How the System Works
+
+Registration
+
+User enters details → uploads face image
+
+Image sent to Flask → saved in dataset
+
+LBPH model retrains
+
+Attendance
+
+React opens camera → sends frame to Flask
+
+Flask predicts user ID
+
+Node.js saves attendance record in MongoDB
+
+Dashboard
+
+Admin/Teacher/Student sees real-time attendance data
 
 
 
-Features:
 
-  -Face registration with image upload
-  
-  -Live face detection from webcam
-  
-  -LBPH-based face recognition
-  
-  -Automatic attendance marking
-  
-  -Admin dashboard (view students + attendance)
-  
-  -MERN + Flask integration
-  
-  -Works offline on local network
+Add anti-spoofing (blink detection)
 
+Add mobile app version
 
-Tech Used:
+Multi-classroom real-time monitoring
 
-Frontend: React, Axios
-
-Backend: Node.js, Express
-
-Recognition: Python, Flask, OpenCV, Haarcascade, LBPH
-
-Database: MongoDB
-
-
-How It Works:
-
-1) User registers → uploads face image
-
-2) Backend sends image to Flask
-
-3) Flask saves image → updates dataset → retrains LBPH
-
-4) When taking attendance:
-
-     Webcam opens
-
-     Flask recognizes face
-
-     Node.js stores attendance in MongoDB
+Cloud deployment (AWS / Render)
