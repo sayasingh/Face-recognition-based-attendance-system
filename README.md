@@ -1,12 +1,69 @@
-# React + Vite
+Face Recognition Based Attendance System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smart and automated Face Recognition Attendance System built using Haarcascade face detection, LBPH face recognition, Flask backend, and MERN stack frontend.
+This system captures faces, recognizes individuals in real-time, and stores attendance in a database.
 
-Currently, two official plugins are available:
+Features
+Face Detection & Recognition
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Face detection using Haarcascade
 
-## Expanding the ESLint configuration
+Face recognition using LBPH (Local Binary Patterns Histogram)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Real-time camera feed detection
+
+High accuracy for known individuals
+
+Attendance System
+
+Automatic attendance marking
+
+Time & date stamp
+
+View attendance history
+
+Supports multiple users
+
+Dataset Management
+
+Face registration (add new users)
+
+Dataset capturing with multiple images
+
+Safe and structured dataset storage
+
+Frontend (React + Vite)
+
+Clean and responsive UI
+
+Live camera feed on browser
+
+Attendance dashboard
+
+Registration form
+
+Backend (Flask + Node + MongoDB)
+
+Flask backend for face recognition
+
+Node.js backend for API + attendance management
+
+MongoDB for user data & attendance logs
+
+Project Structure
+FACE-RECOGNITION-ATTENDANCE/
+│
+├── backend/ # Node.js backend (MongoDB APIs)
+├── backend-node/ # Additional Node server (if used)
+├── public/
+├── src/ # React frontend (Vite)
+│
+├── face_recognition/ # Python recognition system (if separate)
+│ ├── haarcascade/
+│ ├── dataset/
+│ └── trainer.yml
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
