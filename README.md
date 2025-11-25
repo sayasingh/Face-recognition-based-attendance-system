@@ -1,9 +1,15 @@
 # Face-recognition-based-attendance-system
+
 This is a Face Detection & Recognition Attendance System built using:
+
   -React.js (Frontend)
+  
   -Node.js + Express (Backend)
+  
   -MongoDB (Database)
+  
   -Flask + Python + OpenCV (Recognition Module)
+  
 The system detects faces using Haarcascade and recognizes them using LBPH, then marks attendance automatically.
 
 Features:
